@@ -1,0 +1,1 @@
+The SQL file inside of the "database" directory will need to be run once in order to setup the database and tables. The reason I don't run the script automatically is to preserve the data inside such as the leaderboard. Runnig the script resets everything to default.

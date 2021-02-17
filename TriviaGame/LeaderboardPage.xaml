@@ -1,0 +1,40 @@
+﻿<!--
+ *	FILE				: LeaderboardPage.xaml
+ *	PROJECT				: Relational Databases PROG2111 - Assignment 4
+ *	PROGRAMMER			: Andrew Gordon
+ *	FIRST VERSION		: Dec. 1, 2020
+ *  LAST UPDATE         : Dec. 9, 2020
+ *	DESCRIPTION			: Contains the UI for the Leaderboard Page
+ *-->
+
+<Page x:Class="TriviaGame.LeaderboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TriviaGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LeaderboardPage">
+
+    <Grid>
+        <DataGrid Name="LeaderboardGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="30,73,530,111" CanUserSortColumns="False" IsReadOnly="True" HorizontalAlignment="Center" FontSize="12">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rank" Width="*" Binding="{Binding PlayerRank}"/>
+                <DataGridTextColumn Header="Player" Width="*" Binding="{Binding PlayerName}"/>
+                <DataGridTextColumn Header="Score" Width="*" Binding="{Binding PlayerScore}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="PromptBlock" Text="[Player]'s final score was XX" TextAlignment="Center" FontSize="22" Margin="319,33,45,347"/>
+        <TextBlock x:Name="LeaderboardBlock" Text="Leaderboard" TextAlignment="Center" FontSize="22" Margin="-13,33,496,350"/>
+        <DataGrid x:Name="GameStatsGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="275,73,22,119" CanUserSortColumns="False" IsReadOnly="True" HorizontalAlignment="Center" FontSize="12" Width="503">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Questions" Width="*" Binding="{Binding Question}"/>
+                <DataGridTextColumn Header="Correct Answers" Width="120" Binding="{Binding CorrectAnswer}"/>
+                <DataGridTextColumn Header="Were you correct?" Width="110" Binding="{Binding RightOrWrong}"/>
+                <DataGridTextColumn Header="Points" Width="50" Binding="{Binding Points}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="PlayAgainBtn" Content="Play Again?" Click="PlayAgainBtn_Click" FontSize="22" HorizontalAlignment="Left" Margin="343,337,0,0" VerticalAlignment="Top" Width="160" Height="44"/>
+    </Grid>
+</Page>
